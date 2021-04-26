@@ -6,18 +6,18 @@ using System.Web;
 namespace TsGenAspnetExample.Models
 {
     /// <summary>
-    /// enumerate of animal type
+    /// Family
     /// </summary>
-    public enum EnumAnimalType
+    public class Family
     {
         /// <summary>
-        /// Dog
+        /// Family's person count
         /// </summary>
-        Dog,
+        public int PersonCoun { get; set; }
 
         /// <summary>
-        /// Cat
+        /// Family's name
         /// </summary>
-        Cat
+        public string Name { get; set; }
     }
 }

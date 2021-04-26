@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace TsGenAspnetExample.Models
 {
     /// <summary>
-    /// 命名接口
+    /// Name interface
     /// </summary>
     public interface IName
     {
+        /// <summary>
+        /// Name
+        /// </summary>
         string Name { get; set; }
     }
 }

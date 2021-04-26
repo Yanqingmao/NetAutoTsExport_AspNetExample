@@ -5,24 +5,23 @@ using System.Web;
 
 namespace TsGenAspnetExample.Models
 {
-
     /// <summary>
-    /// 泛型工作流类定义
+    /// generic work flow
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TState"></typeparam>
     public class GenericWorkFlow<TEntity, TState>
     {
         /// <summary>
-        /// 实体实例
+        /// the instance of business object
         /// </summary>
         public TEntity EntityInstance { get; set; }
         /// <summary>
-        /// 当前状态
+        /// current state of bussiness object
         /// </summary>
         public TState Current { get; set; }
         /// <summary>
-        /// 下一个状态
+        /// the next state of bussiness object
         /// </summary>
         public TState Next { get; set; }
     }

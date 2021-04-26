@@ -5,22 +5,22 @@ using System.Text;
 namespace TsGenAspnetExample.Models
 {
     /// <summary>
-    /// 对数据进行检查的结果
+    /// Check result for all object
     /// </summary>
     public struct CheckResult
     {
         /// <summary>
-        /// 是否存在错误
+        /// Whether exists error
         /// </summary>
         public bool HasError { get; private set; }
 
         /// <summary>
-        /// 错误原因
+        /// when HasError=true, the error reason
         /// </summary>
         public string ErrorReason { get; private set; }
 
         /// <summary>
-        /// 将字符串隐式转换为一个错误的 CheckResult 对象;
+        /// implicit convert string to CheckResult instance
         /// </summary>
         /// <param name="errorInfo"></param>
         public static implicit operator CheckResult(string errorInfo)
@@ -30,7 +30,7 @@ namespace TsGenAspnetExample.Models
         }
 
         /// <summary>
-        /// 无错误的结果
+        /// CheckResult instance without error
         /// </summary>
         public static CheckResult Ok = new CheckResult { HasError = false };
     }

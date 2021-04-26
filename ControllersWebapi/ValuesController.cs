@@ -8,40 +8,92 @@ using TsGenAspnetExample.Models;
 
 namespace TsGenAspnetExample.Controllers
 {
-    // [RoutePrefix("vv")]
-    // [Route("api/{controller}/{id}")] 出错，直接路由不能使用参数 'controller'
-    // [Route("api/<controller>/{id}")] //找不到 api/Values/123  api/values/Test/123
-    // [Route("api/<controller>")]  // 在控制器“Values”上找不到与该请求匹配的操作。
-     [Route("api/Values/{id?}")] 
-    // [Route("api/Values/{id}")] // api/values 将出错,因为 必须给定 id
+    /// <summary>
+    /// use the default webapi route <see cref="WebApiConfig.Register(HttpConfiguration)"/>
+    /// using name of Method for HttpMethod.
+    /// </summary>
     public class ValuesController : ApiController
     {
-        // [Route("api/Values/{id?}")]  ==> api/values/123 
-        //[Route("api/Values/{id}")] //  ==> api/values/123 
-        [HttpGet]
-        public string Test(int id, string lang)
+        /// <summary>
+        /// handle the get request when these is no id parameter in route.
+        /// </summary>
+        /// <returns></returns>
+        // GET api/<controller>
+        public IEnumerable<Manager> get()
         {
-            return $"abcd -- {id} -- {lang}";
-        }
-
-        // [Route("api/Values/{id?}")]  ==》 api/values/ 
-        [HttpGet]
-        public Dictionary<string, Person> Test(string lang)
-        {
-            SortedDictionary<Person, string> xx;
-            SortedSet<Person> yy;
-            var person1 = new Person { Name = "Daiwei" };
-            var person2 = new Person { Name = lang };
-            return new Dictionary<string, Person>
-            {
-                { person1.Name, person1 },
-                { person2.Name, person2  }
+            return new Manager[] 
+            {  
+                new Manager { Name = $"Get--{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}"},
+                new Manager { Name = $"Get--{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}", Duty = "管理员"}
             };
         }
-        [HttpPost]
-        public List<string> Get(int id)
+
+        /// <summary>
+        /// handle the get request when these is id parameter in route.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET api/<controller>/5
+        public Employee Get(int id)
         {
-            return new List<string> { $"abcd -- {id}" };
+            return new Employee { Name = $"Get--{id}--{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}" };
+        }
+
+        /// <summary>
+        /// handle the post request 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        // POST api/<controller>
+        public Employee Post([FromBody] Employee value)
+        {
+            return new Employee 
+            { 
+                    Name = $"Post--{value.Name}--{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}",
+                    Age = new Random().Next(30) 
+            };
+        }
+
+        /// <summary>
+        /// handle the Put request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        // PUT api/<controller>/5
+        public Employee Put(int id, [FromBody] Employee value)
+        {
+            return new Employee { Name = $"Put---{id}---{value.Name}---{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}" };
+        }
+
+        /// <summary>
+        /// handle the Options request
+        /// </summary>
+        /// <returns></returns>
+        public Employee Options()
+        {
+            return new Employee {  };
+        }
+        /// <summary>
+        /// handle the Patch request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        // Patch api/<controller>/5
+        public Employee Patch(int id, [FromBody] Employee value)
+        {
+            return new Employee { Name = $"Patch---{id}---{value.Name}---{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}" };
+        }
+        /// <summary>
+        /// handle the Delete request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // DELETE api/<controller>/5
+        public Employee Delete(int id)
+        {
+            return new Employee { Name = $"Delete---{id}------{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}" };
         }
     }
 }

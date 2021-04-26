@@ -8,7 +8,7 @@ using TsGenAspnetExample.Models;
 namespace TsGenAspnetExample.Controllers
 {
     /// <summary>
-    /// 抽象的泛型控制器类,带1个泛型参数;
+    /// Generic Controller with one Generic Type Parameter
     /// </summary>
     /// <typeparam name="TDbContext"></typeparam>
     public abstract class AbstractGenericDbContextController<TDbContext> : Controller
@@ -20,7 +20,7 @@ namespace TsGenAspnetExample.Controllers
     }
 
     /// <summary>
-    /// 抽象的泛型控制器类,带2个泛型参数;
+    /// Generic Controller with two Generic Type Parameters
     /// </summary>
     /// <typeparam name="TDbContext"></typeparam>
     public abstract class AbstractGenericDbContextController<TDbContext, TModel> : Controller

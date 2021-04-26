@@ -6,10 +6,19 @@ using System.Web;
 namespace TsGenAspnetExample.Models
 {
 
-    public class Manager : Person
+    /// <summary>
+    /// Manager, used to test loop depends to <see cref="Employee"/>
+    /// </summary>
+    public class Manager : Employee
     {
+        /// <summary>
+        /// Duty
+        /// </summary>
         public string Duty { get; set; }
 
-        public List<Person> DownPersons { get; set; }
+        /// <summary>
+        /// the Employee manged by this manager
+        /// </summary>
+        public List<Employee> DownPersons { get; set; }
     }
 }

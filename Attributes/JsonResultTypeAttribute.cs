@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TsGenAspnetExample.Models
+namespace TsGenAspnetExample.Attributes
 {
     /// <summary>
     /// Define a attribute class which mark a action will return a JsonResult 
@@ -14,8 +14,9 @@ namespace TsGenAspnetExample.Models
         public JsonResultTypeAttribute()
         {
         }
+
         /// <summary>
-        /// 
+        /// assign the real result type of an action
         /// </summary>
         public Type ResultType { get; set; }
     }

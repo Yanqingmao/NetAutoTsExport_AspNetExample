@@ -6,21 +6,38 @@ using System.Web;
 namespace TsGenAspnetExample.Models
 {
     /// <summary>
-    /// 微信订单定义
+    /// Wechat Order Information
     /// </summary>
     public class WechatOrder 
     {
+        /// <summary>
+        /// OrderId
+        /// </summary>
         public int Id { get; set; }
 
+        /// <summary>
+        /// Order Number
+        /// </summary>
         public string OrderNumber { get; set; }
 
-        public EnumOrderState CurrentState { get; set; }
+        /// <summary>
+        /// Order State
+        /// </summary>
+        public EnumWechatOrderState CurrentState { get; set; }
 
+        /// <summary>
+        /// Wechat Order Check Result
+        /// </summary>
         public CheckResult Result { get; set; }
 
         /// <summary>
-        /// 接口
+        /// demostrate property with an interface
         /// </summary>
         public IName CreateUser { get; set; }
+
+        /// <summary>
+        /// the WechatOrder's work flow
+        /// </summary>
+        public WechatOrderWorkflow Workflow { get; set; }
     }
 }

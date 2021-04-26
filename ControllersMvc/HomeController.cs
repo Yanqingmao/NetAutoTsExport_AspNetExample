@@ -4,19 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TsGenAspnetExample.Attributes;
 using TsGenAspnetExample.Models;
 
 namespace TsGenAspnetExample.Controllers
 {
     /// <summary>
-    /// 
+    /// HomeController, extend是 from Generic Controller with one generic type parameter
     /// </summary>
     public class HomeController : AbstractGenericDbContextController<MyDbContext>
     {
         /// <summary>
         /// the <see cref="MyDbContext"/> with AlwaysIgnoreAttribute,
         /// so it will not export to the client.
-        /// and the client function will skip the dbContext parameter.
+        /// Has <see cref="JsonResultTypeAttribute"/>,so the result will be <see cref="Dog"/>
         /// </summary>
         /// <param name="dbContext"></param>
         /// <returns></returns>
@@ -34,9 +35,7 @@ namespace TsGenAspnetExample.Controllers
         }
 
         /// <summary>
-        /// the <see cref="MyDbContext"/> with AlwaysIgnoreAttribute,
-        /// so it will not export to the client.
-        /// and the client function will skip the dbContext parameter.
+        /// JsonResult will convert to any.
         /// </summary>
         /// <param name="dbContext"></param>
         /// <returns>JsonResult will converted to any type</returns>
@@ -56,7 +55,9 @@ namespace TsGenAspnetExample.Controllers
         /// <summary>
         /// the <see cref="MyDbContext"/> with AlwaysIgnoreAttribute,
         /// so it will not export to the client.
-        /// and the client function will skip the dbContext parameter.
+        /// and the client function will skip the dbContext parameter. <br/>
+        /// 
+        /// Task&lt;WechatOrder&gt; should be converted to WechatOrder when exported;
         /// </summary>
         /// <param name="dbContext"></param>
         /// <returns>JsonResult will converted to any type</returns>
@@ -70,17 +71,16 @@ namespace TsGenAspnetExample.Controllers
 
 
         /// <summary>
-        /// 返回  (CheckResult, Person[])  这个类型..看看客户端输出啥
+        /// return tuple instance.
         /// </summary>
         /// <returns></returns>
-        public (CheckResult, Person[]) GenericValueType()
+        public (CheckResult, Employee[]) GenericValueType()
         {
             return (null, null);
         }
 
         /// <summary>
-        /// 用于测试泛型类型作为输出结果时，是否只输出一个实体类定义;
-        /// 而不是输出多个实体类定义
+        /// return the generic type instance
         /// </summary>
         /// <returns></returns>
         public GenericWorkFlow<Dog, EnumAnimalType> TestGenericWorkFlow()

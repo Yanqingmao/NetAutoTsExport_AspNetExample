@@ -13,6 +13,9 @@ namespace TsGenAspnetExample.Models
     /// </summary>
     public class Dog : Animal
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Dog()
         {
             this.AnimalType = EnumAnimalType.Dog;

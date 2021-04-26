@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TsGenAspnetExample.Models
+namespace TsGenAspnetExample.Attributes
 {
     /// <summary>
     /// Define a attribute class which will export the class to the client

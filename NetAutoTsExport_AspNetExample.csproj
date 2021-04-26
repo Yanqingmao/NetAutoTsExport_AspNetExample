@@ -16,7 +16,7 @@
     <AssemblyName>TsGenAspnetExample</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\TsGenAspnetExample.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -135,36 +136,35 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ControllersMvc\AbstractGenericDbContextController.cs" />
     <Compile Include="ControllersMvc\HomeController.cs" />
-    <Compile Include="Models\AnimalList.cs" />
+    <Compile Include="Models\Family.cs" />
+    <Compile Include="Models\WechatOrderWorkflow.cs" />
     <Compile Include="Models\CheckResult.cs" />
-    <Compile Include="Models\EntityWithType.cs" />
-    <Compile Include="Models\EnumOrderState.cs" />
+    <Compile Include="Models\EntityWithXAttribute.cs" />
+    <Compile Include="Models\EnumWechatOrderState.cs" />
     <Compile Include="Models\GenericWorkFlow.cs" />
-    <Compile Include="Models\IOper.cs" />
+    <Compile Include="Models\IName.cs" />
     <Compile Include="Models\MyDbContext.cs" />
-    <Compile Include="ControllersWebapi\NoAnyAttrWebapiController.cs" />
-    <Compile Include="ControllersWebapi\TestAreaTestPrefixValuesController.cs" />
-    <Compile Include="ControllersWebapi\TestPrefixValuesController.cs" />
+    <Compile Include="ControllersWebapi\ValuesController.cs" />
+    <Compile Include="ControllersWebapi\ValuesWithRoutPrefixAndRouteController.cs" />
     <Compile Include="ControllersMvc\TestRouteController.cs" />
     <Compile Include="ControllersMvc\TestRouteAreaAndRoutePrefixController.cs" />
     <Compile Include="ControllersMvc\TestRouteAreaController.cs" />
     <Compile Include="ControllersMvc\TestRoutePrefixController.cs" />
-    <Compile Include="ControllersWebapi\NoRouteValuesController.cs" />
-    <Compile Include="ControllersWebapi\ValuesController.cs" />
-    <Compile Include="ControllersWebapi\TestAreaValuesController.cs" />
+    <Compile Include="ControllersWebapi\ValuesWithHttpMethodOnActionController.cs" />
+    <Compile Include="ControllersWebapi\ValuesWithRouteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\JsonResultTypeAttribute.cs" />
-    <Compile Include="Models\AlwaysIgnoreAttribute.cs" />
-    <Compile Include="Models\AlwaysExportAttribute.cs" />
+    <Compile Include="Attributes\JsonResultTypeAttribute.cs" />
+    <Compile Include="Attributes\AlwaysIgnoreAttribute.cs" />
+    <Compile Include="Attributes\AlwaysExportAttribute.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Cat.cs" />
     <Compile Include="Models\Dog.cs" />
     <Compile Include="Models\EnumAnimalType.cs" />
     <Compile Include="Models\Manager.cs" />
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\TestStruct.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\WechatOrderOwner.cs" />
     <Compile Include="Models\WechatOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,7 +208,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>34440</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:34440/</IISUrl>
+          <IISUrl>http://localhost/NetAutoTsExport_AspNetExample</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

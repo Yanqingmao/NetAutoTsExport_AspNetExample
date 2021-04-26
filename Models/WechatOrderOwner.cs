@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TsGenAspnetExample.Attributes;
 
 namespace TsGenAspnetExample.Models
 {
     /// <summary>
-    /// 测试结构
+    /// struct test
     /// </summary>
-    public struct TestStruct
+    [AlwaysExport]
+    public struct WechatOrderOwner : IName
     {
+        /// <summary>
+        /// the name of Owner
+        /// </summary>
         public string Name { get; set; }
-
-
     }
 }
