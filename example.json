@@ -1,0 +1,23 @@
+﻿{
+  "AssemblyDirPath": "Z:\\NetAutoTsExport_AspNetExample\\NetAutoTsExport_AspNetExample\\bin",
+  "AssemblyXmlDirPath": null,
+  "BaseUrl": "http://localhost/NetAutoTsExport_AspNetExample",
+  "DefaultMvcRoute": "{controller}/{action}/{id?}",
+  "DefaultWebapiRoute": "api/{controller}/{id?}",
+  "AllowStringToNull": true,
+  "StringDefaultEmpty": true,
+  "BuildRefererInstance": true,
+  "ExportRemark": true,
+  "ProductTypeNamePropeprty": true,
+  "ProductEntityInterface": false,
+  "OutputFieldSourceInConstruct": false,
+  "ProductAntiJqueryParamInConstruct": false,
+  "DefineStaticControlStance": true,
+  "ArrayCanBeNull": false,
+  "AttrForExportModel": "AlwaysExportAttribute",
+  "AttrsForExceptProperty": "AlwaysIgnoreAttribute",
+  "AttrsForJsonResultTypes": "JsonResultTypeAttribute",
+  "SendRequestType": 0,
+  "ExportDirPath": "Z:\\NetAutoTsExport_VueExample\\src\\autoTs",
+  "Language": 0
+}
